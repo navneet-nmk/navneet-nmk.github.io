@@ -1,7 +1,8 @@
 ---
 layout: post
-title: First post!
+title: Generating Montezuma's Revenge
 image: /img/hello_world.jpeg
+published: true
 ---
 
-This is my first post, how exciting!
+Generating the frames for Montezuma's Revenge.
