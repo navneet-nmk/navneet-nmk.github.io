@@ -3,6 +3,8 @@ layout: post
 title: Curiosity is all you need.
 image: /img/hello_world.jpeg
 published: true
+date: '2018-08-10'
+subtitle: Explanation of 'Curiosity-driven Exploration by Self-supervised Prediction'
 ---
 
 The Reinforcement Learning basically consists of an agent and an environment. The agent executes an action (or decision) and receives a scalar reward (extrinsic) from the environment.
