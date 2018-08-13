@@ -24,6 +24,12 @@ Now suppose you have a forward dynamics model ie a model that is able to predict
 
 However, there is a problem with directly comparing visual states. The environment may have many entities which move around irrespective of the action executed by the agent. For example, the skull in Montezuma's Revenge moves back and forth irrespective of the agent's actions. If we were to naively compare the pixel predictions of the next predicted state and the actual next state, we could always label the next state as curious due to the changes in the environment.
 
+The authors try to solve this problem by using an inverse dynamics model that transforms the raw sensory input to a feature space where only the information relevant to the action executed is represented. This way, the feature space will not contain any information about environmental changes. 
+How this is done ?
+Simply by using an encoder like architecture that compresses the states into a feature space and then a fully connected network that takes these feature space vectors of the current state and the next state as input and tries to predict the action executed.
+
+The model used is described below 
+![Screen Shot 2018-08-13 at 08.06.44.png]({{site.baseurl}}/img/Screen Shot 2018-08-13 at 08.06.44.png)
 
 
 
