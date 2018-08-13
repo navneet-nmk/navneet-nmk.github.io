@@ -35,8 +35,7 @@ The model used is described below
 
 
 
-
+You can find the Pytorch implementation of the ICM Module at
+[Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
 
 [ Curiosity-driven Exploration by Self-supervised Prediction](https://arxiv.org/abs/1705.05363)
-
-
