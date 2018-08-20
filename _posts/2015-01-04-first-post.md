@@ -58,7 +58,7 @@ The forward dynamics module, the inverse dynamics module and the policy (A3C or 
 1. Since the policy, forward dynamics module and the inverse dynamics are trained on line, the learned features are not stable because the distribution changes as learning progresses.
 2. The features learned by the inverse dynamics module may not be sufficient since they do not represent important aspects of the environment that the agent cannot immediately affect
 
-## Alternative solutions to Inverse Dynamics Module
+### Alternative solutions to Inverse Dynamics Module
 1. Use Random Features.
 2. Use a variational autoencoder.
 3. Use an information maximizing variational autoencoder.
