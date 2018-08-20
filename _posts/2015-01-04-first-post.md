@@ -63,6 +63,7 @@ The forward dynamics module, the inverse dynamics module and the policy (A3C or 
 1. Use Random Features.
 2. Use a variational autoencoder.
 3. Use an information maximizing variational autoencoder.
+4. Use stabilization tricks for the training the inverse dynamics and forward dynamics modules.
 
 
 
