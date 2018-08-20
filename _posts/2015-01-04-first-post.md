@@ -6,7 +6,6 @@ published: true
 date: '2018-08-10'
 subtitle: Explanation of 'Curiosity-driven Exploration by Self-supervised Prediction'
 ---
-
 Reinforcement Learning consists of an agent and an environment wherein the agent executes an action (or decision) and receives a scalar reward (extrinsic) from the environment for that action.
 
 However, in many applications the reward is extremely sparse or not present alltogether.
@@ -36,30 +35,30 @@ inverse dynamics model."
 
 That is a mouthful. Let's break it down.
 
-# Motivation
+## Motivation
 Suppose, you have an agent. In a traditional epsilon greedy exploration strategy, since the actions are completely random, we can reach previously visited states often and often get stuck. 
 Now suppose you have a forward dynamics model i.e. a model that is able to predict the next state given the current state and action. What the paper states is that if you are uncertain about the next state that means that you would potentially "learn something new" by taking that action and therefore explore more. Therefore, the prediction error between the predicted next state and the real next state acts as the intrinsic reward provided to the agent.
 
-# Problem with pixel comparison
+## Problem with pixel comparison
 However, there is a problem with directly comparing visual states. The environment may have many entities which move around irrespective of the action executed by the agent. For example, the skull in Montezuma's Revenge moves back and forth irrespective of the agent's actions. If we were to naively compare the pixel predictions of the next predicted state and the actual next state, we could always label the next state as curious due to the changes in the environment.
 
-# Solution to the problem
+## Solution to the problem
 The authors try to solve this problem by using an inverse dynamics model that transforms the raw sensory input to a feature space where only the information relevant to the action executed is represented. This way, the feature space will not contain any information about environmental changes. 
-## How is this done ?
+### How is this done ?
 Simply by using an encoder like architecture that compresses the states into a feature space and then a fully connected network that takes these feature space vectors of the current state and the next state as input and tries to predict the action executed. This is called an inverse dynamics model since we are trying to predict the action from the states(inverse). This in turn ensures that the feature space only contains the relevant information.
 
-# Forward Dynamic Module
+## Forward Dynamic Module
 At training time, the state, action, next state tuple is collected. The state and the next state are passed through the encoder of the inverse dynamics module. The embedding of the current state and the action are provided to the forward dynamic module which then tries to predict the embedding of the next state. This is then compared to the actual embedding of the next state (Mean squared error) which acts as the loss for the forward dynamics module.
 
 The entire module (Forward + Inverse Dynamics) is called the ICM or the Intrinsic Curiosity Module.
 
 The forward dynamics module, the inverse dynamics module and the policy (A3C or PPO) are trained collectively. 
 
-# Problems with Inverse Dynamics Module
+## Problems with Inverse Dynamics Module
 1. Since the policy, forward dynamics module and the inverse dynamics are trained on line, the learned features are not stable because the distribution changes as learning progresses.
 2. The features learned by the inverse dynamics module may not be sufficient since they do not represent important aspects of the environment that the agent cannot immediately affect
 
-# Alternative solutions to Inverse Dynamics Module
+## Alternative solutions to Inverse Dynamics Module
 1. Use Random Features.
 2. Use a variational autoencoder.
 3. Use an information maximizing variational autoencoder.
