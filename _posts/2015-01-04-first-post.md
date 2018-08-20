@@ -64,6 +64,16 @@ The forward dynamics module, the inverse dynamics module and the policy (A3C or 
 3. Use an information maximizing variational autoencoder.
 4. Use stabilization tricks for the training the inverse dynamics and forward dynamics modules.
 
+## Why use Random Features?
+1. Simple solution which requires no extra training a resources. Basically, you just take the 	    Encoder and fix the weights after a random initialization.
+2. Since the network is fixed, the features are stable.
+3. However, random features may not capture the important and relevant information of the environment.
+
+## Why use Variational Autoencoders?
+1. Features learned are low dimensional and may sufficiently capture the necessary information from the observations.
+2. The observations may contain irrelevant information. (Possibly use a beta-VAE ?)
+3. Unstable (similar to the inverse dynamics module).
+
 
 
 The model used is described below 
