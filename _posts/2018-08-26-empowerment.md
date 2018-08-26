@@ -53,7 +53,7 @@ Empowerment can be represented in the KL divergence because MI has a KL divergen
 
 ![Empowerment-KL Divergence](http://latex.codecogs.com/gif.latex?KL%20%28p%28s%5E%7B%27%7D%2C%20a%7Cs%29%7C%7Cp%28s%5E%7B%27%7D%7Cs%29w%28a%7Cs%29%20%29)
 
-The marginal transition __p(s'|s)__ is the problem here. For continuous action spaces especially. Since we need to integrate over all actions to get this probability distribution. (Note, later in the post we will look at empowerment for discrete action spaces).
+The marginal transition _p(s'|s)_ is the problem here. For continuous action spaces especially. Since we need to integrate over all actions to get this probability distribution. (Note, later in the post we will look at empowerment for discrete action spaces).
 
 
 
