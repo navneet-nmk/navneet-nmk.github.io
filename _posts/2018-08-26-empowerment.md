@@ -67,6 +67,16 @@ Avoid the integral over all actions by switching to the planning distribution.
 Despite being intractable, the planning distribution can be approximated by another distribution **q(a\|s', s)**. 
 So finally we have the lower bound to the mutual information that we required.
 
+![Lower Bound - Mutual Information](http://latex.codecogs.com/gif.latex?I%28s%27%2C%20a%7Cs%29%20%5Cgeq%20%5Cint%20%5Cint%20p%28s%27%2C%20a%7Cs%29%5Cln%20%5Cfrac%7Bq%28a%7Cs%27%2C%20s%29%7D%7Bw%28a%7Cs%29%7D%20ds%27%20du)
+
+Since, I is constant with respect to q, maximizing the lower bound with respect to the planning distribution approximation (q) and the source distribution w, we can maximze the mutual information (or empowerment).
+
+One caveat:
+This lower bound is dependent on how well the distribution q is able to approximate the true planning distribution. Better the approximation, tighter the lower bound.
+
+
+
+
 
 
 
