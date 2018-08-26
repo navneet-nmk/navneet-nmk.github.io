@@ -235,12 +235,17 @@ Inverse Dynamics Distribution
         output = self.output_activ(x)
 
         return output
+        
+        
+Forward Dynamics Distribution
 
 
 
 ### Empowerment for discrete action spaces. (Current Research)
 
 For the past few months, I have been dabbling with intrinsic rewards for the atari games. Learning these games and reaching super human performance is non trivial, especially for sparse reward games such as Montezuma's revenge, where exploration is of prime importance.
+
+
 
 
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
