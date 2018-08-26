@@ -34,5 +34,7 @@ It is defined as the decrease in uncertanity of a random variable x given anothe
 MI is equivalent to the KL divergence between the joint and the product of the marginals.
 Larger the divergence, stronger the interdependence between the random variables.
 
+![first equation](http://latex.codecogs.com/gif.latex?%5Cfrac%7Ba%7D%7Bb%7D)
+
 
 
