@@ -60,6 +60,9 @@ The marginal transition **p(s'\|s)** is the problem here. For continuous action 
 2. Replace **p(s'\|s)** with the planning distribution (inverse dynamics distribution), **p(a\|s', s)** and approximate this (still intractable) distribution. (Much easier than 1).
 
 ### How do we use the planning distribution? 
+Avoid the integral over all actions by switching to the planning distribution.
+
+![Mutual Information-Modified](http://latex.codecogs.com/gif.latex?I%28s%27%2C%20a%7Cs%29%20%3D%20%5Cint%20%5Cint%20p%28s%27%2C%20a%7Cs%29%5Cln%20%5Cfrac%7Bp%28s%27%7Cs%29p%28a%7Cs%27%2C%20s%29%7D%7Bp%28s%27%7Cs%29w%28a%7Cs%29%7D)
 
 
 
