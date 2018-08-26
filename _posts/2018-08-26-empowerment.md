@@ -31,10 +31,14 @@ Mutual information is a quantity that is used for measuring the relationship bet
 It is defined as the decrease in uncertanity of a random variable x given another random variable z.
 
 ### KL Divergence Representation
+What is the KL Divergence ? - The KL Divergence measures how one probability distribution p diverges from a second expected probability distribution q.
+
+![KL Divergence](http://latex.codecogs.com/gif.latex?D%5Cleft%28P%20%5Cmiddle%5C%7C%20Q%5Cright%29%20%3D%20E_%7Bp%7D%5B%5Clog%5Cfrac%7BdP%7D%7BdQ%7D%5D%20%3D%20%5Cint%20P%5Clog%5Cfrac%7BP%7D%7BQ%7DdP)
+
 MI is equivalent to the KL divergence between the joint and the product of the marginals.
 Larger the divergence, stronger the interdependence between the random variables.
 
-![first equation](http://latex.codecogs.com/gif.latex?%5Cfrac%7Ba%7D%7Bb%7D)
+![MI-KL Divergence Representation]()
 
 
 
