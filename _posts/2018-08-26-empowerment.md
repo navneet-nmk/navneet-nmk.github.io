@@ -58,7 +58,8 @@ Empowerment can be represented in the KL divergence because MI has a KL divergen
 
 The marginal transition **p(s'\|s)** is the problem here. For continuous action spaces especially. Since we need to integrate over all actions to get this probability distribution. (Note, later in the post we will look at empowerment for discrete action spaces).
 
-2 Ways to circumvent this intractable distribution:
+Two Ways to circumvent this intractable distribution:
+
 1.Approximate **p(s'\|s)** using variational approximation. (Non-trivial)
 2.Replace **p(s'\|s)** with the planning distribution (inverse dynamics distribution), **p(a\|s', s)** and approximate this (still intractable) distribution. (Much easier than 1).
 
@@ -93,6 +94,20 @@ Have 3 networks-
 2. The Policy Network, pi, that takes in the current state and predicts the action.
 3. The Source network, w, that takes in the current state and predicts the action (this is used for the calculation of the empowerment of a state).
 4. The Planning Network, q, that takes in the current and the next state and predicts the action (this is similar to the inverse dynamics model in [Curiosity is all you need](https://navneet-nmk.github.io/2018-08-10-first-post/))
+
+**The Training Loop**:
+1. Sample the environment using the Policy Network.
+2. Train the forward dynamics model.
+3. Sample one step action from the source distribution and the next state from the forward      dynamics model.
+4. Calculate the mutual information (the Empowerment).
+5. Calculate the reward function. (A function of the Empowerment)
+6. Gradient ascent on w and q.
+7. Gradient ascent on pi.
+
+### Empowerment for discrete action spaces. (Current Research)
+
+
+
 
 
 
