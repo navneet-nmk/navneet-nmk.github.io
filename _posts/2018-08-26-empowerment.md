@@ -22,13 +22,16 @@ It requires integrating over all actions and states which is okay for small envi
 
 Most works circumvent these issues by using discrete actions spaces.
 
-## What are the solutions ?
-**Variational Empowerment**__
+### What are the solutions ?
+**Variational Empowerment**:
 There are varying methods to calculate these which are kind of similar and just vary in the way how the lower bound to the mutual information is calculated.
 
-## What is mutual information ?
+### What is mutual information ?
 Mutual information is a quantity that is used for measuring the relationship between random variables. 
 It is defined as the decrease in uncertanity of a random variable x given another random variable z.
+
+### Why use mutual information and not correlation?
+Mutual information, unlike correlation, is able to capture non-linear statistical dependencies between random variables.
 
 ### KL Divergence Representation
 What is the KL Divergence ? - The KL Divergence measures how one probability distribution p diverges from a second expected probability distribution q.
@@ -56,8 +59,8 @@ Empowerment can be represented in the KL divergence because MI has a KL divergen
 The marginal transition **p(s'\|s)** is the problem here. For continuous action spaces especially. Since we need to integrate over all actions to get this probability distribution. (Note, later in the post we will look at empowerment for discrete action spaces).
 
 2 Ways to circumvent this intractable distribution:
--Approximate **p(s'\|s)** using variational approximation. (Non-trivial)
--Replace **p(s'\|s)** with the planning distribution (inverse dynamics distribution), **p(a\|s', s)** and approximate this (still intractable) distribution. (Much easier than 1).
+1.Approximate **p(s'\|s)** using variational approximation. (Non-trivial)
+2.Replace **p(s'\|s)** with the planning distribution (inverse dynamics distribution), **p(a\|s', s)** and approximate this (still intractable) distribution. (Much easier than 1).
 
 ### How do we use the planning distribution? 
 Avoid the integral over all actions by switching to the planning distribution.
@@ -74,8 +77,22 @@ Since, I is constant with respect to q, maximizing the lower bound with respect 
 One caveat:
 This lower bound is dependent on how well the distribution q is able to approximate the true planning distribution. Better the approximation, tighter the lower bound.
 
+### How do we calculate the lower bound ?
+We can sample from the system dynamics (assuming it is available) and the source distribution and estimate the gradients of the lower bound of Mutual Information using Monte Carlo Sampling and the reparameterization trick. ([Simple explanation of the reparameterization trick](https://medium.com/@llionj/the-reparameterization-trick-4ff30fe92954))
+
+### Exploiting the reward (or the Empowerment)
+The estimation of the empowerment enables us to efficiently learn the source distribution, w.
+The main goal of this training is not to lean a policy but to learn to estimate empowerment of a particular state.
+Empowerment can be perceived as the unsupervised value of a state, it can be used to train agents that proceed towards empowering states.
+The reward in the reinforcement learning setting is then the negative empowerment value. 
 
 
+### Enough of maths. Practical Approach.
+Have 3 networks-
+1. Forward Dynamics Model that takes in the current state and the action and predicts the next state.
+2. The Policy Network, pi, that takes in the current state and predicts the action.
+3. The Source network, w, that takes in the current state and predicts the action (this is used for the calculation of the empowerment of a state).
+4. The Planning Network, q, that takes in the current and the next state and predicts the action (this is similar to the inverse dynamics model in [Curiosity is all you need](https://navneet-nmk.github.io/2018-08-10-first-post/))
 
 
 
