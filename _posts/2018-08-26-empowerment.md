@@ -23,7 +23,7 @@ It requires integrating over all actions and states which is okay for small envi
 Most works circumvent these issues by using discrete actions spaces.
 
 ## What are the solutions ?
-Variational Empowerment
+**Variational Empowerment**__
 There are varying methods to calculate these which are kind of similar and just vary in the way how the lower bound to the mutual information is calculated.
 
 ## What is mutual information ?
@@ -56,13 +56,17 @@ Empowerment can be represented in the KL divergence because MI has a KL divergen
 The marginal transition **p(s'\|s)** is the problem here. For continuous action spaces especially. Since we need to integrate over all actions to get this probability distribution. (Note, later in the post we will look at empowerment for discrete action spaces).
 
 2 Ways to circumvent this intractable distribution:
-1. Approximate **p(s'\|s)** using variational approximation. (Non-trivial)
-2. Replace **p(s'\|s)** with the planning distribution (inverse dynamics distribution), **p(a\|s', s)** and approximate this (still intractable) distribution. (Much easier than 1).
+-Approximate **p(s'\|s)** using variational approximation. (Non-trivial)
+-Replace **p(s'\|s)** with the planning distribution (inverse dynamics distribution), **p(a\|s', s)** and approximate this (still intractable) distribution. (Much easier than 1).
 
 ### How do we use the planning distribution? 
 Avoid the integral over all actions by switching to the planning distribution.
 
 ![Mutual Information-Modified](http://latex.codecogs.com/gif.latex?I%28s%27%2C%20a%7Cs%29%20%3D%20%5Cint%20%5Cint%20p%28s%27%2C%20a%7Cs%29%5Cln%20%5Cfrac%7Bp%28s%27%7Cs%29p%28a%7Cs%27%2C%20s%29%7D%7Bp%28s%27%7Cs%29w%28a%7Cs%29%7D)
+
+Despite being intractable, the planning distribution can be approximated by another distribution **q(a\|s', s)**. 
+So finally we have the lower bound to the mutual information that we required.
+
 
 
 
