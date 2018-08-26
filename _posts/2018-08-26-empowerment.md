@@ -44,7 +44,11 @@ Note that Mi can also be represented in the form of the shannon entropies.
 ### What is empowerment ? Mathematically.
 Empowerment is defined as the mutual information between the control input and the subsequent state.
 
-![Empowerment]()
+![Empowerment](http://latex.codecogs.com/gif.latex?%5Cvarepsilon%20%28s%29%20%3D%20max_%7Bw%7DI%28S%5E%7B%27%7D%2C%20a%7CS%29)
+where w is the source distribution policy (Not to be confused with the empowerment(or intrinsic reward) maximizing policy).
+
+### Empowerment KL Divergence Representation
+
 
 
 
