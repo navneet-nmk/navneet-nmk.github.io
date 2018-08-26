@@ -1,7 +1,9 @@
 ---
 layout: post
-published: false
+published: true
 title: Empowerment
+subtitle: Empowerment as intrinsic reward
+date: '2018-08-26'
 ---
 ## Explaining Empowerment.
 
