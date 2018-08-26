@@ -26,3 +26,13 @@ Most works circumvent these issues by using discrete actions spaces.
 Variational Empowerment
 There are varying methods to calculate these which are kind of similar and just vary in the way how the lower bound to the mutual information is calculated.
 
+## What is mutual information ?
+Mutual information is a quantity that is used for measuring the relationship between random variables. 
+It is defined as the decrease in uncertanity of a random variable x given another random variable z.
+
+### KL Divergence Representation
+MI is equivalent to the KL divergence between the joint and the product of the marginals.
+Larger the divergence, stronger the interdependence between the random variables.
+
+
+
