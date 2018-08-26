@@ -37,7 +37,7 @@ What is the KL Divergence ? - The KL Divergence measures how one probability dis
 
 MI is equivalent to the KL divergence between the joint and the product of the marginals.
 Larger the divergence, stronger the interdependence between the random variables.
-Note that Mi can also be represented in the form of the shannon entropies.
+Note that MI can also be represented in the form of the shannon entropies.
 
 ![MI-KL Divergence Representation](http://latex.codecogs.com/gif.latex?I%28X%3BZ%29%20%3D%20D%5Cleft%28P_%7Bxz%7D%20%5Cmiddle%5C%7C%20P_%7Bx%7D%5Cotimes%20P_%7Bz%7D%5Cright%29%20%3D%20H%28X%29%20-%20H%28X%7CZ%29)
 
@@ -45,9 +45,17 @@ Note that Mi can also be represented in the form of the shannon entropies.
 Empowerment is defined as the mutual information between the control input and the subsequent state.
 
 ![Empowerment](http://latex.codecogs.com/gif.latex?%5Cvarepsilon%20%28s%29%20%3D%20max_%7Bw%7DI%28S%5E%7B%27%7D%2C%20a%7CS%29)
+
 where w is the source distribution policy (Not to be confused with the empowerment(or intrinsic reward) maximizing policy).
 
 ### Empowerment KL Divergence Representation
+Empowerment can be represented in the KL divergence because MI has a KL divergence representation. 
+
+![Empowerment-KL Divergence](http://latex.codecogs.com/gif.latex?KL%20%28p%28s%5E%7B%27%7D%2C%20a%7Cs%29%7C%7Cp%28s%5E%7B%27%7D%7Cs%29w%28a%7Cs%29%20%29)
+
+The marginal transition __p(s'|s)__ is the problem here. For continuous action spaces especially. Since we need to integrate over all actions to get this probability distribution. (Note, later in the post we will look at empowerment for discrete action spaces).
+
+
 
 
 
