@@ -466,11 +466,11 @@ The empowerment calculated can now be directly utilized as an intrinsic reward f
 6. Train the forward model.
 7. Sample the joint and the marginal distributions as mentioned above and calculate the mutual information. 
 8. Gradient ascent on the statistics network, T.
-9. Store the mutual information as a reward, r_e + beta\*mutual_information in the replay buffer.
+9. Store the mutual information as a reward, r_e + beta\*mutual_information, in the replay buffer.
 10. Train the DQN Network.
 11. Repeat until convergence.
 
-
+Code- To be released.
 
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
 
