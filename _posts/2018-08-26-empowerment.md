@@ -441,16 +441,34 @@ Then, empowerment could be represented by MINE in the following manner
 Again, we run into the problem of p(s'\|s) which is intractable for continuos action spaces but since we are dealing with discrete action spaces, we can easily sum over all actions. 
 
 ### How do we get the samples from the joint?
-For the joint distribution p(s', a\|s), the samples from the replay buffer can be used. (Note that the replay buffer is filled by executing the actions from the source distribution, w).
+For the joint distribution p(s', a\|s), the samples from the replay buffer can be used. (Note that the replay buffer is filled by executing the actions from the policy distribution, w).
 
-Note that the source distribution can be parameterized as a neural network or be fixed, such as a uniform distribution.
+Therefore the samples for the first half of the Mutual Information equation are the s' and a of the tuples (s, a, s').
 
-Therefore the samples for the first half of the Mutual Information equation are the tuples of (s, a, s').
+### How do we get the samples from the marginal distributions ?
+For the marginal distribution p(s'\|s), we take the current state and sample all possible actions (possible due to the discrete action space assumption)and give these as input to the forward dynamics model (f(s'\|s, a)) and then average out the result to get the s' for the corresponding s. 
 
+For the marginal distribution w(a\|s), we just sample from the minibatch. 
+Thus, we get the a and s required for the second term.
 
+### What next ?
+After having calculated the joint and marginal distributions, we can then sample from these to calculate the lower bound to the mutual information (a.k.a the empowerment of the state).
 
+### We have the empowerment. What now?
+The empowerment calculated can now be directly utilized as an intrinsic reward for any policy learning algorithm. Here, I would be using Deep Q Learning.
 
-
+### The Algorithm.
+1. Initialize a forward model f(s, a) and policy pi.
+2. Initialize the environment 
+3. Sample actions from policy distribution w(a\|s) and execute the actions.
+4. Store the resulting tuples (s, a, s', r_e) in the replay buffer. 
+5. Sample a batch of tuples from the replay buffer.
+6. Train the forward model.
+7. Sample the joint and the marginal distributions as mentioned above and calculate the mutual information. 
+8. Gradient ascent on the statistics network, T.
+9. Store the mutual information as a reward, r_e + beta\*mutual_information in the replay buffer.
+10. Train the DQN Network.
+11. Repeat until convergence.
 
 
 
