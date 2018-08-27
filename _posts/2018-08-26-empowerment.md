@@ -430,6 +430,10 @@ Suppose you have 2 random variables, X and Z.
 
 ### How can we use this for Reinforcement Learning ?
 
+Recall empowerment was the mutual information between the action and the subsequent state that was reached due to that action.
+Calculating the mutual information using the aforementioned method is a bit of a pain. What if we could use the simple formulation given by MINE.
+
+
 
 
 
