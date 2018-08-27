@@ -428,6 +428,10 @@ Suppose you have 2 random variables, X and Z.
 6. Do an gradient ascent step.
 7. Repeat until convergence. 
 
+### How can we use this for Reinforcement Learning ?
+
+
+
 
 
 
