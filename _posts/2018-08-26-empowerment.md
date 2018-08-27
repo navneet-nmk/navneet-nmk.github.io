@@ -406,7 +406,14 @@ Recall the mutual information KL representation-
 ![MI-KL Divergence Representation](http://latex.codecogs.com/gif.latex?I%28X%3BZ%29%20%3D%20D%5Cleft%28P_%7Bxz%7D%20%5Cmiddle%5C%7C%20P_%7Bx%7D%5Cotimes%20P_%7Bz%7D%5Cright%29%20%3D%20H%28X%29%20-%20H%28X%7CZ%29)
 
 Now, there is a thing called the dual representation of the KL divergence.
+The paper primarily works with the Donsker-Varadhan representation of the KL divergence.
 
+### What is the Donsker-Varadhan Representation?
+
+The KL divergence admits the following dual representation :
+![Dual Representation](http://latex.codecogs.com/gif.latex?%5Clarge%20D_%7BKL%7D%20%28P%7C%7CQ%29%20%3D%20%5Csup_%7BT%3A%5Cphi%20%5Crightarrow%20R%7D%20E_%7Bp%7D%5BT%5D%20-%20%5Clog%28E_%7Bq%7De%5E%7BT%7D%29)
+
+For the proof, I refer you to the paper - Mutual Information Neural Estimation. (It is pretty straightforward).
 
 
 
