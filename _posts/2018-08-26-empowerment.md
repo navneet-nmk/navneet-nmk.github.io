@@ -391,7 +391,14 @@ Main Training Loop
 
 ### Empowerment for discrete action spaces. (Current Research)
 
-For the past few months, I have been dabbling with intrinsic rewards for the atari games. Learning these games and reaching super human performance is non trivial, especially for sparse reward games such as Montezuma's revenge, where exploration is of prime importance.
+For the past few months, I have been dabbling with intrinsic rewards for the atari games. Learning these games and reaching super human performance is non trivial, especially for sparse reward games such as Montezuma's revenge, where exploration is of prime importance. Lately, there has been work on agents that are trained only using intrinsic rewards and no external rewards ([Curiosity is all you need](https://navneet-nmk.github.io/2018-08-10-first-post/)) but there are other forms of intrinsic motivations that can be used, namely Empowerment.
+
+Now, I will explain the model that would enable an agent to learn in atari games using empowerment (with or without extrinsic rewards).
+
+### How to calculate Mutual Information with standard, simple SGD ?
+Using Mutual Information Neural Estimation.
+What is that ?
+
 
 
 
