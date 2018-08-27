@@ -172,7 +172,7 @@ States Encoder (Better results when using state encodings instead of raw observa
         return encoded_state
 
 
-Source Distribution, w(a|s)
+Source Distribution, w(a\|s)
 
 	class source_distribution(nn.Module):
 
@@ -251,7 +251,7 @@ Source Distribution, w(a|s)
         return output
         
        
-Inverse Dynamics Distribution, q(a|s', s)
+Inverse Dynamics Distribution, q(a\|s', s)
 
 	class inverse_dynamics_distribution(nn.Module):
     
@@ -337,7 +337,8 @@ Inverse Dynamics Distribution, q(a|s', s)
         
         
 Forward Dynamics Distribution
-	class forward_dynamics_model(nn.Module):
+	
+    class forward_dynamics_model(nn.Module):
 
     def __init__(self, height,
                  width,
