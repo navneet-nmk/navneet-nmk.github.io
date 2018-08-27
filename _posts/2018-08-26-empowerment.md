@@ -433,6 +433,10 @@ Suppose you have 2 random variables, X and Z.
 Recall empowerment was the mutual information between the action and the subsequent state that was reached due to that action.
 Calculating the mutual information using the aforementioned method is a bit of a pain. What if we could use the simple formulation given by MINE.
 
+Then, empowerment could be represented by MINE in the following manner
+
+[Empowerment-MINE](http://latex.codecogs.com/gif.latex?%5Clarge%20D_%7BKL%7D%20%28P%7C%7CQ%29%20%3D%20%5Csup_%7BT%3A%5Cphi%20%5Crightarrow%20R%7D%20E_%7Bp%28s%27%7Ca%2C%20s%29w%28a%7Cs%29%7D%5BT%28s%27%2C%20a%29%29%5D%20-%20%5Clog%28E_%7Bp%28s%27%7Cs%29w%28a%7Cs%29%7De%5E%7BT%28s%27%2C%20a%29%7D%29)
+
 
 
 
