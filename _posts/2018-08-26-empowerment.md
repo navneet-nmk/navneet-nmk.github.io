@@ -458,9 +458,9 @@ After having calculated the joint and marginal distributions, we can then sample
 The empowerment calculated can now be directly utilized as an intrinsic reward for any policy learning algorithm. Here, I would be using Deep Q Learning.
 
 ### The Algorithm.
-1. Initialize a forward model f(s, a) and policy pi.
+1. Initialize a forward model f(s, a) and policy w.
 2. Initialize the environment 
-3. Sample actions from policy distribution w(a\|s) and execute the actions.
+3. Sample actions from policy distribution w(a\|s) (Using a random exploration policy, intially)  and execute the actions.
 4. Store the resulting tuples (s, a, s', r_e) in the replay buffer. 
 5. Sample a batch of tuples from the replay buffer.
 6. Train the forward model.
