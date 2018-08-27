@@ -399,6 +399,15 @@ Now, I will explain the model that would enable an agent to learn in atari games
 Using Mutual Information Neural Estimation.
 What is that ?
 
+MINE is a simply uses the dual representation of the mutual information KL representation to get an easy formulation of the mutual information to maximize or minimize or estimate.
+
+Recall the mutual information KL representation-
+
+![MI-KL Divergence Representation](http://latex.codecogs.com/gif.latex?I%28X%3BZ%29%20%3D%20D%5Cleft%28P_%7Bxz%7D%20%5Cmiddle%5C%7C%20P_%7Bx%7D%5Cotimes%20P_%7Bz%7D%5Cright%29%20%3D%20H%28X%29%20-%20H%28X%7CZ%29)
+
+Now, there is a thing called the dual representation of the KL divergence.
+
+
 
 
 
