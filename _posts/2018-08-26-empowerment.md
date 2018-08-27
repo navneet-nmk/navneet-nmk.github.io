@@ -411,6 +411,7 @@ The paper primarily works with the Donsker-Varadhan representation of the KL div
 ### What is the Donsker-Varadhan Representation?
 
 The KL divergence admits the following dual representation :
+
 ![Dual Representation](http://latex.codecogs.com/gif.latex?%5Clarge%20D_%7BKL%7D%20%28P%7C%7CQ%29%20%3D%20%5Csup_%7BT%3A%5Cphi%20%5Crightarrow%20R%7D%20E_%7Bp%7D%5BT%5D%20-%20%5Clog%28E_%7Bq%7De%5E%7BT%7D%29)
 
 For the proof, I refer you to the paper - Mutual Information Neural Estimation. (It is pretty straightforward).
