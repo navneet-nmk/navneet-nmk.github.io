@@ -416,6 +416,18 @@ The KL divergence admits the following dual representation :
 
 For the proof, I refer you to the paper - Mutual Information Neural Estimation. (It is pretty straightforward).
 
+We can then choose a family of functions F T: X x Z -> R parameterized by a deep neural network. And that is it. Really simple and elegant.
+
+### The Algorithm then.
+Suppose you have 2 random variables, X and Z.
+1. Initialize the network parameters.
+2. Draw a minibatch of samples from the joint distribution. This means the batch would consist of (x, z) samples.
+3. By simply dropping x or z from the samples, we can get the respective marginals.
+4. Use the above representation to estimate a lower bound to the Mutual Information.
+5. Evaluate the gradient.
+6. Do an gradient ascent step.
+7. Repeat until convergence. 
+
 
 
 
