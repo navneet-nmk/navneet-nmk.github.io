@@ -28,7 +28,7 @@ There are varying methods to calculate these which are kind of similar and just 
 
 ### What is mutual information ?
 Mutual information is a quantity that is used for measuring the relationship between random variables. 
-It is defined as the decrease in uncertanity of a random variable x given another random variable z.
+It is defined as the decrease in uncertanity of a random variable x given another random variable z. This means that if you have now something about z then you are more confident about x.
 
 ### Why use mutual information and not correlation?
 Mutual information, unlike correlation, is able to capture non-linear statistical dependencies between random variables.
