@@ -404,5 +404,7 @@ What is that ?
 
 
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
+
 [Unsupervised Real-time control through Variational Empowerment](https://arxiv.org/pdf/1710.05101.pdf)
+
 [Mutual Information Neural Estimation](https://arxiv.org/pdf/1801.04062.pdf)
