@@ -471,7 +471,8 @@ The empowerment calculated can now be directly utilized as an intrinsic reward f
 11. Repeat until convergence.
 
 Statistics Network
-	class StatisticsNetwork(nn.Module):
+	
+    class StatisticsNetwork(nn.Module):
 
     def __init__(self, state_space,
                  action_space,
