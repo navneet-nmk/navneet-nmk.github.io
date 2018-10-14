@@ -389,8 +389,7 @@ Forward Dynamics Distribution
         output = self.output(x)
 
         return output
-        
-Main Training Loop
+       
 
 ### Problems
 1. The above training approach is complex and does not really perform well in discrete action space environments such as the hard exploration game, Montezuma's Revenge.
