@@ -506,6 +506,86 @@ Statistics Network
         x = self.lrelu(x)
         output = self.output(x)
         return output
+        
+Policy Training
+        
+        for frame_idx in range(1, self.num_frames+1):
+            epsilon_by_frame = epsilon_greedy_exploration()
+            epsilon = epsilon_by_frame(frame_idx)
+            action = self.policy_network.act(state, epsilon)
+
+            # Execute the action
+            next_state, reward, done, success = self.env.step(action.item())
+            episode_reward += reward
+
+            if self.clip_rewards:
+                reward = np.sign(reward)
+
+            next_state = to_tensor(next_state, use_cuda=self.use_cuda)
+            with torch.no_grad():
+                next_state = self.encoder(next_state)
+
+            reward = torch.tensor([reward], dtype=torch.float)
+
+            done_bool = done * 1
+            done_bool = torch.tensor([done_bool], dtype=torch.float)
+
+            # Store in the replay buffer
+            self.store_transition(state=state, new_state=next_state,
+                                  action=action, done=done_bool,reward=reward)
+
+            state = next_state
+
+            if done:
+                epoch_episode_rewards.append(episode_reward)
+                # Add episode reward to tensorboard
+                episode_reward = 0
+                state = self.env.reset()
+                state = to_tensor(state, use_cuda=self.use_cuda)
+                state = self.encoder(state)
+
+            # Train the forward dynamics model
+            if len(self.replay_buffer) > self.fwd_limit:
+                # Sample a minibatch from the replay buffer
+                transitions = self.replay_buffer.sample_batch(self.batch_size)
+                batch = Buffer.Transition(*zip(*transitions))
+                batch = self.get_train_variables(batch)
+                mse_loss = self.train_forward_dynamics(batch=batch)
+                stats_loss, aug_rewards, lower_bound = self.train_statistics_network(batch=batch)
+                if self.clip_augmented_rewards:
+                    # Clip the augmented rewards.
+                    aug_rewards = torch.sign(aug_rewards)
+                policy_loss = self.train_policy(batch=batch, rewards=aug_rewards)
+                if frame_idx % self.print_every == 0:
+                    print('Forward Dynamics Loss :', mse_loss.item())
+                    print('Statistics Network loss', stats_loss.item())
+                    print('Policy Loss: ', policy_loss.item())
+                    
+## Experiments
+The models were trained and executed on the hard exploration game of Montezuma's Revenge. The following hyperparameters were used without any hyperparamater search.
+
+Batch Size: 64
+Environment Embedding Size: 64
+Hidden Size (For all networks): 64
+Intrinsic Parameter beta: 0.1
+
+## Results
+Without any intrinsic rewards and just using the external reward signal of the game, standard DQN fails to achieve any rewards whatsover. 
+However, after using the empowerment values as intrinsic rewards, the agent is consistently able to achieve rewards and is also able to exit the first room. 
+
+![Results]({{site.baseurl}}/img/fig.jpg)
+
+
+## Some Insights 
+1. During the initial training, I was using the standard KL divergence form of the mutual information as demonstrated in Belghazi et al. however, since KL is not bounded this made the training unstable. Simply switching the KL with Jensen Shannon divergence greatly improved training stability. 
+2. Reward scaling was really important to avoid situations where the Q network diverged. 
+3. Slow training (lower learning rate) for the statistics network also helped improve stability.
+
+## Future Direction
+The results achieved show the validity of the method but I believe that given better computational resources, this method could possibly be used as an unsupervised control mechanism. 
+Currently, the main factor limiting the performance is, I believe, the environment embedding size which is using random features. A size of 64 may be insufficient for atari and we may have to use atleast an embedding size of 512 (Similar to Large Scale study of Curiosity).
+
+You could find the code in the following github repository and feel free to tinker.
 
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
 
