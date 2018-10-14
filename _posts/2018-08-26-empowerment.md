@@ -582,7 +582,7 @@ However, after using the empowerment values as intrinsic rewards, the agent is c
 3. Slow training (lower learning rate) for the statistics network also helped improve stability.
 
 ## Future Direction
-The results achieved show the validity of the method but I believe that given better computational resources, this method could possibly be used as an unsupervised control mechanism. 
+The results achieved show the validity of the method but I believe that **given better computational resources, this method could possibly be used as an unsupervised control mechanism.** 
 Currently, the main factor limiting the performance is, I believe, the environment embedding size which is using random features. A size of 64 may be insufficient for atari and we may have to use atleast an embedding size of 512 (Similar to Large Scale study of Curiosity).
 
 You could find the code in the following github repository and feel free to tinker.
