@@ -575,6 +575,8 @@ However, after using the empowerment values as intrinsic rewards, the agent is c
 
 ![Results]({{site.baseurl}}/img/fig.jpg)
 
+The orange color represents the agent without extrinsic rewards and the one with the blue color represents the empowerment driven agent. 
+
 
 ## Some Insights 
 1. During the initial training, I was using the standard KL divergence form of the mutual information as demonstrated in Belghazi et al. however, since KL is not bounded this made the training unstable. Simply switching the KL with Jensen Shannon divergence greatly improved training stability. 
