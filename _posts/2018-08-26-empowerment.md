@@ -16,13 +16,13 @@ What all these definitions/formulations have in common is the way they allow an 
 
 **Empowerment is one such measure that which is defined as the channel capacity (Information theory reference ) between actions and states that maximizes the influence of an agent on it's near future.**
 
-Information theoretically, empowerment is defined as the mutual information between the action and the subsequent state acheived by that action. Policies that take into account the empowerment of a state consistently drives the agent to states with high potential.
+Information theoretically, empowerment is defined as the mutual information between the action and the subsequent state acheived by that action. Policies that take into account the empowerment of a state consistently drives the agent to states with high potential. Empowerment basically alows the agent to take only those actions which result in the maximum possible number of future states. Empowerment improves survival.
 
-This all sounds fine and dandy. Then why don't we see much of empowerment in the current literature. Because it is seriously hard to calculate the empowerment. Really hard.
+This all sounds fine and dandy. Then why don't we see much of empowerment in the current literature. 
+Because it is seriously hard to calculate the empowerment. Really hard.
 
-It requires integrating over all actions and states which is okay for small environments and discrete action spaces but enter the continuous realm and all hell breaks loose.
+It requires the calculation of Mutual information which has been , traditionally, a very hard quantity to calculate. Moreover, the current literature on using empowerment tend to have complicated architectures and often do not have great performance, especially on hard exploration games.
 
-Most works circumvent these issues by using discrete actions spaces.
 
 ### What are the solutions ?
 **Variational Empowerment**:
@@ -51,7 +51,7 @@ Empowerment is defined as the mutual information between the control input and t
 
 ![Empowerment](http://latex.codecogs.com/gif.latex?%5Cvarepsilon%20%28s%29%20%3D%20max_%7Bw%7DI%28S%5E%7B%27%7D%2C%20a%7CS%29)
 
-where w is the source distribution policy (Not to be confused with the empowerment(or intrinsic reward) maximizing policy).
+where w is the source distribution policy (Not to be confused with the empowerment(or intrinsic reward) maximizing policy). **Note that we could also use the empowerment maximizing policy as the action policy.**
 
 ### Empowerment KL Divergence Representation
 Empowerment can be represented in the KL divergence because MI has a KL divergence representation. 
@@ -81,7 +81,8 @@ One caveat:
 This lower bound is dependent on how well the distribution q is able to approximate the true planning distribution. Better the approximation, tighter the lower bound.
 
 ### How do we calculate the lower bound ?
-We can sample from the system dynamics (assuming it is available) and the source distribution and estimate the gradients of the lower bound of Mutual Information using Monte Carlo Sampling and the reparameterization trick. ([Simple explanation of the reparameterization trick](https://medium.com/@llionj/the-reparameterization-trick-4ff30fe92954))
+We can sample from the system dynamics (assuming it is available) and the source distribution and estimate the gradients of the lower bound of Mutual Information using Monte Carlo Sampling and the reparameterization trick. ([Simple explanation of the reparameterization trick](https://medium.com/@llionj/the-reparameterization-trick-4ff30fe92954)) 
+The following method is essentially the method demonstrated in [Unsupervised Real-time control through Variational Empowerment](https://arxiv.org/pdf/1710.05101.pdf).
 
 ### Exploiting the reward (or the Empowerment)
 The estimation of the empowerment enables us to efficiently learn the source distribution, w.
@@ -105,6 +106,8 @@ Have 3 networks-
 5. Calculate the reward function. (A function of the Empowerment)
 6. Gradient ascent on w and q.
 7. Gradient ascent on pi.
+
+### Network Architectures 
 
 States Encoder (Better results when using state encodings instead of raw observations)
 
@@ -389,7 +392,9 @@ Forward Dynamics Distribution
         
 Main Training Loop
 
-
+### Problems
+1. The above training approach is complex and does not really perform well in discrete action space environments such as the hard exploration game, Montezuma's Revenge.
+2. My aim going forward to have a simple, scalable (using SGD) and efficient method to have an intrinsically motivated agent, similar to what was achieved in Curiosity driven exploration.
 
 ### Empowerment for discrete action spaces. (Current Research)
 
