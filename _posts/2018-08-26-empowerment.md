@@ -339,63 +339,13 @@ Inverse Dynamics Distribution, q(a\|s', s)
         output = self.output_activ(x)
 
         return output
-        
-        
-Forward Dynamics Distribution
-	
-    class forward_dynamics_model(nn.Module):
-
-    def __init__(self, height,
-                 width,
-                 state_space, action_space,
-                 input_channels, conv_kernel_size, 
-                 conv_layers, hidden,
-                 use_encoding=True):
-        super(forward_dynamics_model, self).__init__()
-        self.state_space = state_space
-        self.action_space = action_space
-        self.height = height
-        self.width = width
-        self.conv_kernel_size = conv_kernel_size
-        self.hidden = hidden
-        self.conv_layers = conv_layers
-        self.use_encoding = use_encoding
-        self.input_channels = input_channels
-
-        # Forward Dynamics Model Architecture
-
-        # Given the current state and the action, this network predicts the next state
-
-        self.layer1 = nn.Linear(in_features=self.state_space * 2, out_features=self.hidden)
-        self.layer2 = nn.Linear(in_features=self.hidden, out_features=self.hidden)
-        self.layer3 = nn.Linear(in_features=self.hidden, out_features=self.hidden * 2)
-        self.layer4 = nn.Linear(in_features=self.hidden * 2, out_features=self.hidden * 2)
-        self.hidden_1 = nn.Linear(in_features=self.hidden*2,
-                                  out_features=self.hidden)
-        self.output = nn.Linear(in_features=self.hidden+self.action_space, out_features=self.state_space)
-
-    def forward(self, current_state, action):
-        x = self.layer1(current_state)
-        x = self.lrelu(x)
-        x = self.layer2(x)
-        x = self.lrelu(x)
-        x = self.layer3(x)
-        x = self.lrelu(x)
-        x = self.layer4(x)
-        x = self.lrelu(x)
-        x = self.hidden_1(x)
-        x = self.lrelu(x)
-        x = torch.cat([x, action], dim=-1)
-        output = self.output(x)
-
-        return output
        
 
 ### Problems
 1. The above training approach is complex and does not really perform well in discrete action space environments such as the hard exploration game, Montezuma's Revenge.
 2. My aim going forward to have a simple, scalable (using SGD) and efficient method to have an intrinsically motivated agent, similar to what was achieved in Curiosity driven exploration.
 
-### Empowerment for discrete action spaces. (Current Research)
+## Empowerment for discrete action spaces. (Current Research)
 
 For the past few months, I have been dabbling with intrinsic rewards for the atari games. Learning these games and reaching super human performance is non trivial, especially for sparse reward games such as Montezuma's revenge, where exploration is of prime importance. Lately, there has been work on agents that are trained only using intrinsic rewards and no external rewards ([Curiosity is all you need](https://navneet-nmk.github.io/2018-08-10-first-post/)) but there are other forms of intrinsic motivations that can be used, namely Empowerment.
 
