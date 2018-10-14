@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: Empowerment
+title: Empowerment driven Exploration
 subtitle: Empowerment as intrinsic reward
 date: '2018-08-26'
 ---
