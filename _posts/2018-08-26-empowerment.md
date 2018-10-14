@@ -581,7 +581,7 @@ However, after using the empowerment values as intrinsic rewards, the agent is c
 
 ![Results]({{site.baseurl}}/img/fig.jpg)
 
-The orange color represents the agent without extrinsic rewards and the one with the blue color represents the empowerment driven agent. 
+The orange color represents the agent without intrinsic rewards and the one with the blue color represents the empowerment driven agent. 
 
 
 ## Some Insights 
