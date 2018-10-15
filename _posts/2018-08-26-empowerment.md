@@ -545,9 +545,10 @@ Currently, the main factor limiting the performance is, I believe, the environme
 
 You could find the code in the following github repository and feel free to tinker.
 
-## The Complete Research Paper
+### The Complete Research Paper
 [Empowerment driven Exploration using Mutual Information Estimation](https://arxiv.org/pdf/1810.05533.pdf)
 
+### Github Repository
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
 
 [Unsupervised Real-time control through Variational Empowerment](https://arxiv.org/pdf/1710.05101.pdf)
