@@ -553,4 +553,6 @@ You could find the code in the following github repository and feel free to tink
 
 [Unsupervised Real-time control through Variational Empowerment](https://arxiv.org/pdf/1710.05101.pdf)
 
+[Variational Information Maximisation for Intrinsically Motivated Reinforcement Learning](https://arxiv.org/abs/1509.08731)
+
 [Mutual Information Neural Estimation](https://arxiv.org/pdf/1801.04062.pdf)
