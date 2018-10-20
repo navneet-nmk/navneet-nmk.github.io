@@ -543,6 +543,15 @@ The orange color represents the agent without intrinsic rewards and the one with
 The results achieved show the validity of the method but I believe that **given better computational resources, this method could possibly be used as an unsupervised control mechanism.** 
 Currently, the main factor limiting the performance is, I believe, the environment embedding size which is using random features. A size of 64 may be insufficient for atari and we may have to use atleast an embedding size of 512 (Similar to Large Scale study of Curiosity).
 
+## Inspiration from recent papers
+Following the results from [Exploration by random distillation](https://openreview.net/forum?id=H1lJJnR5Ym), the following methods could also be implemented for better results:
+1. Using only intrinsic rewards and treating the problem as non-episodic.
+2. Using 2 value heads for the intrinsic and extrinsic rewards resepectively.
+3. High discount factor for the external rewards (Anticipate rewards well into the future).
+4. Use sticky actions to avoid relying on the game's determinism.
+5. Normalize the intrinsic reward.
+6. Observation normalization is essential too.
+
 You could find the code in the following github repository and feel free to tinker.
 
 ### The Complete Research Paper
