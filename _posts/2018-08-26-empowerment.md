@@ -557,6 +557,8 @@ You could find the code in the following github repository and feel free to tink
 ### The Complete Research Paper
 [Empowerment driven Exploration using Mutual Information Estimation](https://arxiv.org/pdf/1810.05533.pdf)
 
+# My Paper (mentioned above) got accepted at Bayesian Deep Learning Workshop, NIPS 2018. Thank all for the valuable feedback.
+
 ### Github Repository
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
 
