@@ -559,6 +559,9 @@ You could find the code in the following github repository and feel free to tink
 
 # My Paper (mentioned above) got accepted at Bayesian Deep Learning Workshop, NIPS 2018. Thank all for the valuable feedback.
 
+## Tensorflow implementation (Under development)
+I have made a number of key changes to the original architecture and algorithm in lieu of better results on Atari. Wish me luck !
+
 ### Github Repository
 [Pytorch-RL](https://github.com/navneet-nmk/pytorch-rl)
 
