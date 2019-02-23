@@ -7,7 +7,7 @@ Today we will discuss about a new research project/idea that I have been working
 
 This post will be quite long so ...
 
-**** TLDR: Combination of Stochasticity, task agnostic exploration and task based exploration measures greatly helps in sparse reward tasks.
+### TLDR: Combination of Stochasticity, task agnostic exploration and task based exploration measures greatly helps in sparse reward tasks.
 
 ## Prologue
 
@@ -58,6 +58,8 @@ So far so good. Now we will take a look at task based exploration method, mainly
 
 ## MAESN
 
-MAESN is based on gradient based meta learning. SO we will first learn about Meta Learning and specifically, Model Agnostic Meta Learning (MAML).
+MAESN is based on gradient based meta learning. So we will first learn about Meta Learning and specifically, Model Agnostic Meta Learning (MAML).
 
 ### MAML
+
+
