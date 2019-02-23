@@ -7,7 +7,7 @@ Today we will discuss about a new research project/idea that I have been working
 
 This post will be quite long so ...
 
-****TLDR: Combination of Stochasticity, task agnostic exploration and task based exploration measures greatly helps in sparse reward tasks.
+**** TLDR: Combination of Stochasticity, task agnostic exploration and task based exploration measures greatly helps in sparse reward tasks.
 
 Prologue
 
