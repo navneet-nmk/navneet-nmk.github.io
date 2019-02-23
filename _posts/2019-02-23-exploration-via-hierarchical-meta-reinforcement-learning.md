@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Exploration via Hierarchical Meta Reinforcement Learning
 ---
 Today we will discuss about a new research project/idea that I have been working on for the past couple of months. 
@@ -61,21 +61,3 @@ So far so good. Now we will take a look at task based exploration method, mainly
 MAESN is based on gradient based meta learning. SO we will first learn about Meta Learning and specifically, Model Agnostic Meta Learning (MAML).
 
 ### MAML
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
