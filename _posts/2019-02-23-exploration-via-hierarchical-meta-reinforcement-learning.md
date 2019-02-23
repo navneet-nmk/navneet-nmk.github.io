@@ -9,7 +9,7 @@ This post will be quite long so ...
 
 **** TLDR: Combination of Stochasticity, task agnostic exploration and task based exploration measures greatly helps in sparse reward tasks.
 
-Prologue
+## Prologue
 
 From the very beginning of my studies in machine learning, and specifically, reinforcement learning, I have been quite intrigued in the behaviour of agents in sparse reward tasks. 
 Humans are extermely capable at exploring their environments and that too in an efficient manner. Having read about various exploration strategies such as curiosity, information theoretic approaches and count based exploration, the overarching theme that comes out is that most of these measures explore the environment quite well, agreed, albeit in a truly inefficient manner. 
