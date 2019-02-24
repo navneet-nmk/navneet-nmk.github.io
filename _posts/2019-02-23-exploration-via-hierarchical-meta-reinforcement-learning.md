@@ -54,12 +54,58 @@ They were actually able to learn pretty useful and diverse skills and were able 
 ![DIAYN_rewards]({{site.baseurl}}/img/many_rewards.png)
 
 
-So far so good. Now we will take a look at task based exploration method, mainly MAESN or Model Agnostic Exploration with Structured Noise (Yeah, that's a mouthful).
+So far so good. Now we will take a look at task based exploration method, mainly MAESN or Model Agnostic Exploration with Structured Noise (That's a mouthful).
 
 ## MAESN
 
 MAESN is based on gradient based meta learning. So we will first learn about Meta Learning and specifically, Model Agnostic Meta Learning (MAML).
 
-### MAML
+### Meta Learning - MAML
+I have heard about supervised, unsupervised even reinforcement but what is this new form of sorcery ?
+Meta Learning is, simply put, learning to learn. Meta Learning intends to design models that can learn new skills or adapt to new environments rapidly with a few training examples.
+There are 2 main approaches to do this:
+
+1. Model based - Use a recurrent network
+2. Gradient based - Optimize the model parameters for fast adaptation. 
+
+Model agnostic meta learning comes under gradient based meta learning methods.
+If you want to learn more about meta learning, I would recommend this brilliant post - [Meta Learning](https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html)
+
+#### Model Agnostic Meta Learning
+Model agnostic meta learning draws inspiration from the success of transfer learning in Computer Vision. The intuition is that similar to how we train computer vision models on Imagenet and then finetune the layers on a new dataset, we can also learn the parameters of a model for many tasks from a given task distribution and then 'finetune' the model to a new task at test time. 
+
+More formally, assume you have a model f with parameters, theta. You are given a task t and the associated dataset. What MAML tries to do can be summarized in the following figure : 
+
+![MAML-diagram]({{site.baseurl}}/img/Screenshot 2019-02-24 at 15.12.43.png)
+
+The final algorithm is the following :
+![MAML-ALgorithm]({{site.baseurl}}/img/Screenshot 2019-02-24 at 15.12.55.png)
+
+The MAML objective for reinforcement learning is then:
+![MAML_RL]({{site.baseurl}}/img/Screenshot 2019-02-24 at 15.17.03.png)
+
+
+## Why MAESN? What MAESN?
+Standard Meta Learning/ Meta RL methods have been shown to be effective for fast adaptation problems in Reinforcement Learning however one problem that plagues these methods is the lack of any form of exploration. This hurts these algorithms in sparse reward tasks. 
+
+__ Tasks where discovering the goal requires exploration that is both stochastic and structured cannot be easily captured by such methods.
+
+MAESN incorporates learned time-correlated noise by meta learning the latent space of the policy (it uses a latent variable policy), and trains both the latent exploration space and the policy parameters explicitly for fast adaptation. 
+
+Let us break these things down. 
+
+1. Latent Space policies : Standard stochastic policies use an action distribution that is independent for each time step.
+Instead, latent space policies are conditioned on per-episode random variables drawn from a learned latent distribution. 
+
+![Latent Space Policy]({{site.baseurl}}/img/Screenshot 2019-02-24 at 15.25.53.png)
+
+
+
+
+
+
+
+
+
 
 
