@@ -88,7 +88,7 @@ The MAML objective for reinforcement learning is then:
 ## Why MAESN? What MAESN?
 Standard Meta Learning/ Meta RL methods have been shown to be effective for fast adaptation problems in Reinforcement Learning however one problem that plagues these methods is the lack of any form of exploration. This hurts these algorithms in sparse reward tasks. 
 
-__ Tasks where discovering the goal requires exploration that is both stochastic and structured cannot be easily captured by such methods.
+_Tasks where discovering the goal requires exploration that is both stochastic and structured cannot be easily captured by such methods._
 
 MAESN incorporates learned time-correlated noise by meta learning the latent space of the policy (it uses a latent variable policy), and trains both the latent exploration space and the policy parameters explicitly for fast adaptation. 
 
