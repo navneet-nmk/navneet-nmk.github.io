@@ -99,6 +99,53 @@ Instead, latent space policies are conditioned on per-episode random variables d
 
 ![Latent Space Policy]({{site.baseurl}}/img/Screenshot 2019-02-24 at 15.25.53.png)
 
+2. Meta Learning Latent Variable Policies :
+A combination of variational inference and gradient based Meta Learning (MAML) is used for training the aforementioned latent space policies. 
+Specifically, the aim is to train the policy parameters so that they can make use of the latent variables to explore effectively. 
+Therefore, we learn a set of latent space distribution parameters for each task for optimal performance after a policy gradient adaptation step (MAML Adapt Step). This encourages the policy to actually make use of the latent variables for exploration. 
+
+For those woh require some math goodness, the full meta training problem :
+
+![Meta RL Eq 1]({{site.baseurl}}/img/Screenshot 2019-02-25 at 17.22.36.png)
+
+![Meta RL Eq 2]({{site.baseurl}}/img/Screenshot 2019-02-25 at 17.22.44.png)
+
+![Meta RL Eq 3]({{site.baseurl}}/img/Screenshot 2019-02-25 at 17.22.52.png)
+
+![Meta RL Eq 4]({{site.baseurl}}/img/Screenshot 2019-02-25 at 17.22.58.png)
+
+
+### MAESN Algorithm
+
+![MAESN Algo]({{site.baseurl}}/img/Screenshot 2019-02-25 at 17.25.41.png)
+
+
+### MAESN Results
+
+MAESN is tested on a multitude of continuos control tasks but the one we would be focusing on for this post would be Robotic Manipulation. 
+
+#### Robotic Manipulation
+
+The goal in Robotic Manipulation tasks is to push blocks to target locations with a robotic hand. In each task, several blocks are placed at random positions. Only one block (unknown to the agent) is relevant for each task, and that block must be moved to a goal location. 
+Different tasks in the distribution require pushing different blocks from different positions and to different goals.
+
+![Robotic Manipulation]({{site.baseurl}}/img/Screenshot 2019-02-25 at 17.30.38.png)
+
+
+During metatraining, the reward function corresponds to the negative distance between the relevant block and the goal, but during meta-testing, only a sparse reward function for reaching the goal with the correct goal is provided. 
+One thing to note here is that at meta training, a dense reward is provided to the agent instead of a sparse reward. Sparse reward is only used at meta testing time. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
